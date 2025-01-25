@@ -28,7 +28,6 @@ class LoginView(generics.GenericAPIView):
       'access' : str(refresh.access_token),
     }, status=status.HTTP_200_OK)
   
-#creating a view
 class PostCreateView(generics.CreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
