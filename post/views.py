@@ -27,6 +27,7 @@ class LoginView(generics.GenericAPIView):
     return Response({
       'refresh' : str(refresh),
       'access' : str(refresh.access_token),
+      'username':user.username
     }, status=status.HTTP_200_OK)
   
 class PostCreateView(generics.CreateAPIView):
