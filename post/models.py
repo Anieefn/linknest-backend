@@ -1,17 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-class User(models.Model):
-  name = models.CharField(max_length=50)
-  email = models.EmailField()
-  password = models.CharField(max_length=20)
-
-  def __str__(self):
-    return f"{self.name, self.email, self.password}"
-
 class Post(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField( max_length=25, default='default_name')
     picture = models.ImageField(upload_to='images/', default='defaults/default_profile.jpg')  # Set the default image
     bio = models.TextField()
     email = models.EmailField()
